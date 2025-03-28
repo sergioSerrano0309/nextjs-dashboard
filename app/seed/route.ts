@@ -111,8 +111,9 @@ export async function GET() {
       seedCustomers(),
       seedInvoices(),
       seedRevenue(),
+      void sql
     ]);
-    void result;
+    void result
 
     return Response.json({ message: 'Database seeded successfully' });
   } catch (error) {
