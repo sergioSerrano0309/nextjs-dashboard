@@ -105,7 +105,8 @@ async function seedRevenue() {
 export async function GET() {
   try {
 
-    const result = await sql.begin((_sql) => [
+    // eslint-disable-next-line no-unused-vars
+    const result = await sql.begin((sql) => [
       seedUsers(),
       seedCustomers(),
       seedInvoices(),
