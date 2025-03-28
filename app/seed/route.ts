@@ -101,9 +101,11 @@ async function seedRevenue() {
   return insertedRevenue;
 }
 
+/* eslint-disable no-unused-vars */
 export async function GET() {
   try {
-    const result = await sql.begin((sql) => [
+
+    const result = await sql.begin((_sql) => [
       seedUsers(),
       seedCustomers(),
       seedInvoices(),
