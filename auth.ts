@@ -5,6 +5,7 @@ import { z } from 'zod';
 import type { User } from '@/app/lib/definitions';
 import bcrypt from 'bcryptjs';
 import postgres from 'postgres';
+import ForwardEmail from "next-auth/providers/forwardemail"
 
 const sql = postgres(process.env.POSTGRES_URL!, { ssl: 'require' });
  
@@ -18,9 +19,10 @@ async function getUser(email: string): Promise<User | undefined> {
   }
 }
 
-export const { auth, signIn, signOut } = NextAuth({
+
+export const { handlers, auth, signIn, signOut } = NextAuth({
   ...authConfig,
-  providers: [Credentials({
+  providers: [ForwardEmail, Credentials({
     async authorize(credentials) {
       const parsedCredentials = z
         .object({ email: z.string().email(), password: z.string().min(6) })
