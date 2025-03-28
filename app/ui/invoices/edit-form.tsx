@@ -23,7 +23,8 @@ export default function EditInvoiceForm({
   const updateInvoiceWithId = updateInvoice.bind(null, invoice.id);
   // eslint-disable-next-line no-unused-vars
   const [state, formAction] = useActionState(updateInvoiceWithId, initialState);
- 
+  void state
+  
   return <form action={formAction}>
       <div className="rounded-md bg-gray-50 p-4 md:p-6">
         {/* Customer Name */}
