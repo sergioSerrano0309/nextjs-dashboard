@@ -9,7 +9,7 @@ export default function SignIn() {
       }}
     >
       <input type="text" name="email" placeholder="Email" />
-      <button type="submit">Signin with Forward Email</button>
+      <button type="submit" >Signin with Forward Email</button>
     </form>
   )
 }
